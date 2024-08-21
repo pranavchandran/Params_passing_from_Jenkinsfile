@@ -15,24 +15,25 @@ pipeline {
     }
 
 
-    stage('Print Environment') {
-        steps {
-            echo "Environment: ${DEPLOY_ENV}"
+    stages {
+        stage('Print Environment') {
+            steps {
+                echo "Environment: ${DEPLOY_ENV}"
+            }
         }
-    }
 
-    stage('Checkout') {
-        steps {
-            // checkout the code from the github url
-            git url: 'https://github.com/pranavchandran/Params_passing_from_Jenkinsfile.git', branch: 'main'
+        stage('Checkout') {
+            steps {
+                // checkout the code from the github url
+                git url: 'https://github.com/pranavchandran/Params_passing_from_Jenkinsfile.git', branch: 'main'
+            }
         }
-    }
 
-    stage('Run Python Code') {
-        steps {
-            // run the python code
-            sh 'python3 jenkins_choice_params.py'
+        stage('Run Python Code') {
+            steps {
+                // run the python code
+                sh 'python3 jenkins_choice_params.py'
+            }
         }
     }
-    
 }
