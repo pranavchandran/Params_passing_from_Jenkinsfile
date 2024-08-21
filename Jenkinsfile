@@ -3,7 +3,7 @@ pipeline {
 
     parameters {
         choice(
-            name: 'Environment', 
+            name: 'Env', 
             choices: ['Development', 'Production'], 
             description: 'Choose the option'
         )
@@ -11,13 +11,13 @@ pipeline {
 
     environment {
         // set the environment variable
-        Environment = "${params.Environment}"
+        DEPLOY_ENV = "${params.Env}"
     }
 
 
     stage('Print Environment') {
         steps {
-            echo "Environment: ${Environment}"
+            echo "Environment: ${DEPLOY_ENV}"
         }
     }
 
