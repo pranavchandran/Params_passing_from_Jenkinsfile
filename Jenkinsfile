@@ -14,6 +14,7 @@ pipeline {
         Environment = "${params.Environment}"
     }
 
+
     stage('Print Environment') {
         steps {
             echo "Environment: ${Environment}"
@@ -33,4 +34,5 @@ pipeline {
             sh 'python3 jenkins_choice_params.py'
         }
     }
+    
 }
