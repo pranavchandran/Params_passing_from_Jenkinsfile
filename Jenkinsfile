@@ -32,7 +32,7 @@ pipeline {
         stage('Run Python Code') {
             steps {
                 // run the python code
-                bat 'python3 jenkins_choice_params.py'
+                bat 'python jenkins_choice_params.py'
             }
         }
     }
