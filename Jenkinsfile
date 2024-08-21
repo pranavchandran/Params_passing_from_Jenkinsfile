@@ -2,10 +2,17 @@ Pipeline {
     agent any
 
     parameters {
-        choice(name: 'Environment', choices: ['Development', 'Production'], description: 'Choose the option')
+        choice(
+            name: 'Environment', 
+            choices: ['Development', 'Production'], 
+            description: 'Choose the option'
+        )
     }
 
-    Environment = "${params.Environment}"
+    environment {
+        // set the environment variable
+        Environment = "${params.Environment}"
+    }
 
     stage('Print Environment') {
         steps {
